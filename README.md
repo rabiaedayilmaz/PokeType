@@ -26,4 +26,6 @@ nodemon src/index.js
 Now, you are all set up.
 You will be able to see and test on ```http://localhost:8080```
 
+
 Special thanks to Emir Öncü for designing the PokeType logo for me, you rock!
+![](https://github.com/rabiaedayilmaz/PokeType/blob/main/src/assets/poke-main.jpg)
