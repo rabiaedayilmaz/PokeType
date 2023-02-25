@@ -1,4 +1,4 @@
-const Result = {0:'Bug',
+const TARGET_CLASSES = {0:'Bug',
              1:'Dark',
              2:'Dragon',
              3:'Electric',
@@ -24,40 +24,44 @@ $("#image-selector").change(function () {
 		$("#selected-image").attr("src", dataURL);
 		$("#prediction-list").empty();
 	}
-
+	
 	let file = $("#image-selector").prop('files')[0];
 	reader.readAsDataURL(file);
 });
 
 let model;
-$(document).ready(async function () {
+$( document ).ready(async function () {
 	$('.progress-bar').show();
-	model = await tf.loadGraphModel('./model-js/model.json');
+    console.log( "Loading model..." );
+    model = await tf.loadLayersModel('model-js/model.json');
+    console.log( "Model loaded." );
 	$('.progress-bar').hide();
 });
 
-$("#predictBtn").click(async function () {
+$("#predict-button").click(async function () {
 	let image = $('#selected-image').get(0);
-
-	let pre_image = tf.browser.fromPixels(image, 3)
-		.resizeNearestNeighbor([224, 224])
-		.expandDims()
+	
+	// Pre-process the image
+	let tensor = tf.browser.fromPixels(image, 3)
+		.resizeNearestNeighbor([32,32]) // change the image size here
+		//.mean(2)
 		.toFloat()
-		.reverse(-1);
-	let predict_result = await model.predict(pre_image).data();
-	console.log(predictions);
-	let order = Array.from(predict_result)
-		.map(function (p, i) {
+		.div(tf.scalar(255.0))
+		.expandDims();
+	//console.log(tensor.shape)
+	let predictions = await model.predict(tensor).data();
+	let top5 = Array.from(predictions)
+		.map(function (p, i) { // this is Array.map
 			return {
 				probability: p,
-				className: Result[i]
+				className: TARGET_CLASSES[i] // we are selecting the value from the obj
 			};
 		}).sort(function (a, b) {
 			return b.probability - a.probability;
-		}).slice(0, 2);
+		}).slice(0, 3);
 
-	$("#list").empty();
-	order.forEach(function (p) {
-		$("#list").append(`<li>${p.className}: ${parseInt(Math.trunc(p.probability * 100))} %</li>`);
-	});
+	$("#prediction-list").empty();
+	top5.forEach(function (p) {
+		$("#prediction-list").append(`<li>${p.className}: ${p.probability.toFixed(4)*100}%</li>`);
+		});
 });

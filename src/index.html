@@ -1,52 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>PokeType!!</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="Use the power of Machine Learning to classify flowers.">
 
-<head>
-  <meta charset="utf-8" />
-  <title>Poke Type!!</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="What type of Pokemon are you? Let's find out!" />
+    <link rel="stylesheet" href="style.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+			integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<style>
+			.bd-placeholder-img {
+				font-size: 1.125rem;
+				text-anchor: middle;
+				-webkit-user-select: none;
+				-moz-user-select: none;
+				-ms-user-select: none;
+				user-select: none;
+			}
 
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbsdsrttru6a34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-</head>
+			@media (min-width: 768px) {
+				.bd-placeholder-img-lg {
+					font-size: 3.5rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+    
+		<main role="main" class="container mt-5">
+      <div id="banner-img"><img src="assets/poke-main.jpg" alt="poke-header"/></div>
+			<div class="row">
+				<div class="col-12">
+					<div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">Loading Model</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-6">
+					<input id="image-selector" class="form-control border-0" type="file">
+				</div>
+				<div class="col-6">
+					<button id="predict-button" class="btn btn-primary float-right">Predict</button>
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="col-6">
+					<h2 class="ml-3">Image</h2>
+					<img id="selected-image" class="ml-3" width="250" alt=""> 
+				</div>
+				<div class="col-6">
+					<h2 class="ml-3">Predictions</h2>
+					<ol id="prediction-list"></ol>
+				</div>
+			</div>
+		</main>
 
-<body>
-  <main role="main" class="container mt-5">
-    <div class="row">
-      <div class="col-12">
-        <div class="progress progress-bar progress-bar-striped progress-bar-animated mb-2">
-          Loading Model
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-6">
-        <input id="image-selector" class="form-control border-0" type="file" />
-      </div>
-      <div class="col-6">
-        <button id="predictBtn" class="btn btn-primary float-right">
-          Predict
-        </button>
-      </div>
-    </div>
-    <hr />
-    <div class="row">
-      <div class="col-6">
-        <h2 class="ml-3">Image</h2>
-        <img id="selected-image" class="ml-3" width="250" alt="" />
-      </div>
-      <div class="col-6">
-        <h2 class="ml-3">Predictions</h2>
-        <ol id="prediction-list"></ol>
-      </div>
-    </div>
-  </main>
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@0.13.3/dist/tf.min.js"></script>
-<script src="src/predict.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.2.7/dist/tf.min.js"></script>
+		<script src="target_classes.js"></script>
+		<script src="predict.js"></script> 
 
-</body>
-
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    <p>&emsp; &emsp; &emsp; &emsp; &emsp; A simple game to predict pokemon type for a given photo.</p>
+    <footer class="section footer-classic context-dark bg-image" style="background: #2d3246;">
+            <div class="container">
+              <div class="row row-30">
+                <div class="col-md-4 col-xl-5">
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <h5>Contact Me:</h5>
+                  <dl class="contact-list">
+                    <dt>email:</dt>
+                    <dd><a href="mailto:#">edayilmxz@outlook.com</a></dd>
+                  </dl>
+                </div>
+          </footer>
+	</body>
 </html>
