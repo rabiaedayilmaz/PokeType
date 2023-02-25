@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "what type of pokemon are you lets find out",
   "main": "index.js",
+  "start" : "./node_modules/.bin/nodemon server.js",
   "scripts": {
     "test": "testgo"
   },
