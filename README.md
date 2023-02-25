@@ -4,7 +4,7 @@ Have you ever wondered about what if you were a pokemon? Well, I did. However, t
 
 The goal of this project is to predict the pokemon type for a given image. Therefore, each user will be able to load an image, such as her/his selfie etc., click on the predict button, and then discover your type.
 
-![](https://https://github.com/rabiaedayilmaz/PokeType/blob/main/src/assets/example.png?raw=true)
+![](https://github.com/rabiaedayilmaz/PokeType/blob/main/src/assets/example.png)
 
 ## Usage
 To use it locally, firstly clone this repo.
