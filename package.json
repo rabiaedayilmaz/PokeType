@@ -1,0 +1,15 @@
+{
+  "name": "poketypegame",
+  "version": "1.0.0",
+  "description": "what type of pokemon are you lets find out",
+  "main": "index.js",
+  "scripts": {
+    "test": "testgo"
+  },
+  "author": "rabiaedayilmaz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "jquery": "^3.6.3"
+  }
+}
