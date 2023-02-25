@@ -4,6 +4,8 @@ Have you ever wondered about what if you were a pokemon? Well, I did. However, t
 
 The goal of this project is to predict the pokemon type for a given image. Therefore, each user will be able to load an image, such as her/his selfie etc., click on the predict button, and then discover your type.
 
+![Let's Catch 'em All!!](src\assets\example.png?raw=true "Let's Catch 'em All!!")
+
 ## Usage
 To use it locally, firstly clone this repo.
 
@@ -21,5 +23,5 @@ Then, command for interface:
 npm init
 nodemon src/index.js
 ```
-
+Now, you are all set up.
 You will be able to see and test on ```http://localhost:8080```
