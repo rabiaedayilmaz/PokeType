@@ -8,7 +8,10 @@ The goal of this project is to predict the pokemon type for a given image. There
 ![](https://github.com/rabiaedayilmaz/PokeType/blob/main/src/assets/example.png)
 
 ## Usage
-To use it locally, firstly clone this repo.
+
+You can check it out immediately [here](https://poke-type-game.onrender.com/).
+
+To use it locally, edit etc., firstly clone this repo.
 
 ```bash
 git clone https://github.com/rabiaedayilmaz/PokeType
@@ -24,7 +27,7 @@ Then, to activate the project on your local server, use these commands respectiv
 
 ```bash
 npm init
-nodemon src/index.js
+node src/index.js
 ```
 Now, you are all set up.
 You will be able to see and test on ```http://localhost:8080```
