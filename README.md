@@ -1,6 +1,7 @@
 # PokeType
 
-Have you ever wondered about what if you were a pokemon? Well, I did. However, to decide is even harder if you have so many options, like which type of element you are! 
+Have you ever wondered about what if you were a pokemon? Well, I did. However, to decide is even harder if you have so many options, like which type of element you are!
+Well, machine learning got your back, so no need to worry.
 
 The goal of this project is to predict the pokemon type for a given image. Therefore, each user will be able to load an image, such as her/his selfie etc., click on the predict button, and then discover your type.
 
@@ -9,17 +10,19 @@ The goal of this project is to predict the pokemon type for a given image. There
 ## Usage
 To use it locally, firstly clone this repo.
 
-```git clone https://github.com/rabiaedayilmaz/PokeType```
+``` bash
+git clone https://github.com/rabiaedayilmaz/PokeType
+```
 
 There are some commands to download packages etc. 
-```
+``` bash
 npm install express
 npm install jquery
 ```
 
-Then, command for interface:
+Then, to activate the project on your local server, use these commands respectively:
 
-```
+``` bash
 npm init
 nodemon src/index.js
 ```
