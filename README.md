@@ -10,19 +10,19 @@ The goal of this project is to predict the pokemon type for a given image. There
 ## Usage
 To use it locally, firstly clone this repo.
 
-``` properties
+```bash
 git clone https://github.com/rabiaedayilmaz/PokeType
 ```
 
 There are some commands to download packages etc. 
-``` properties
+```bash
 npm install express
 npm install jquery
 ```
 
 Then, to activate the project on your local server, use these commands respectively:
 
-``` properties
+```bash
 npm init
 nodemon src/index.js
 ```
