@@ -22,13 +22,13 @@ git clone https://github.com/rabiaedayilmaz/PokeType
 ```src``` folder contains web application using HTML, CSS and JS.
 ```train``` folder contains machine learning model and dataset using TensorFlow framework and Python. 
 After training the model, convert it into ```tensorflow-js``` format to use it in JS.
-To convert it, use following structure on the Google Colab, then download the model. Later add model into corresponding file:
+To convert it, use following structure, then download the model. Later add model into corresponding file:
 
 ```bash
 pip install tensorflowjs
 tensorflowjs_converter --input_format keras \
-                        /content/PokemonTrainerLastBestModel.h5 \
-                       /content/
+                        train/model/PokemonTrainerLastBestModel.h5 \
+                       src/model-js
 ```
 
 For webpage interface, there are some commands to download packages etc. 
